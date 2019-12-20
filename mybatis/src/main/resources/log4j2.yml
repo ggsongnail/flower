@@ -32,6 +32,12 @@ Loggers:
     additivity: false
     AppenderRef:
       ref: LogToConsole
+  logger:
+    name: com.atomikos
+    level: info
+    additivity: false
+    AppenderRef:
+      ref: LogToConsole
   Root:
     level: info
     AppenderRef:
