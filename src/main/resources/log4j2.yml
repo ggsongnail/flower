@@ -1,0 +1,40 @@
+# 日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL
+Configuration:
+status: info # 自身内部的日志输出
+monitorInterval: 500 # 自动检测修改配置文件和重新配置本身，设置间隔秒数
+
+soilenders:
+  Console:
+    name: LogToConsole
+    PatternLayout:
+      Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+  RollingFile:
+    name: LogToRollingFile
+    fileName: logs/soil.log
+    filePattern: "logs/$${date:yyyy-MM}/soil-%d{MM-dd-yyyy}-%i.log.gz"
+    PatternLayout:
+      pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+    Policies:
+      SizeBasedTriggeringPolicy:
+        size: 30MB # 一旦文件大小达到指定大小后，就会发送rollover
+    DefaultRollOverStrategy:
+      max: 10 # 只设置max 没设置min 在第11次rollover时，soil-1会被删除，soil-2重命名为soil-1，soil重命名soil-10，同时创建soil并写入
+
+Loggers:
+  logger:
+    name: org.springframework
+    level: info
+    additivity: false # additivity设为false，则子Logger只会在自己的appender里输出
+    AppenderRef:
+      ref: LogToConsole
+  logger:
+    name: com.seed
+    level: debug
+    additivity: false
+    AppenderRef:
+      ref: LogToConsole
+  Root:
+    level: info
+    AppenderRef:
+      ref: LogToConsole
+      ref: LogToRollingFile

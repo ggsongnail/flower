@@ -1,0 +1,39 @@
+Configuration:
+status: info
+monitorInterval: 500
+
+appenders:
+  Console:
+    name: LogToConsole
+    PatternLayout:
+      Pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+  RollingFile:
+    name: LogToRollingFile
+    fileName: logs/seed-mybatis.log
+    filePattern: "logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz"
+    PatternLayout:
+      pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+    Policies:
+      SizeBasedTriggeringPolicy:
+        size: 30MB
+    DefaultRollOverStrategy:
+      max: 10
+
+Loggers:
+  logger:
+    name: org.springframework
+    level: info
+    additivity: false
+    AppenderRef:
+      ref: LogToConsole
+  logger:
+    name: com.seed
+    level: debug
+    additivity: false
+    AppenderRef:
+      ref: LogToConsole
+  Root:
+    level: info
+    AppenderRef:
+      ref: LogToConsole
+      ref: LogToRollingFile

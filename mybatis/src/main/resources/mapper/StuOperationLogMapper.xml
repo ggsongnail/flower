@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seed.mybatis.mapper.db1.StuOperationLogMapper">
+    <select id="selectOperationPageByXML" parameterType="com.seed.mybatis.entity.StuPassport" resultType="map">
+        SELECT
+            s.`name`,
+            s.idcard,
+            sg.method,
+            sg.operation
+        FROM
+            stu_operation_log sg
+        LEFT JOIN stu_passport s ON s.id = sg.uid
+        WHERE s.id = #{dto.id}
+    </select>
+</mapper>
