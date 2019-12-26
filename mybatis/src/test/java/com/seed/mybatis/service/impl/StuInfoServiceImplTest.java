@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.seed.mybatis.MybatisPlusConfig;
+import com.seed.mybatis.config.MybatisPlusConfig;
 import com.seed.mybatis.entity.StuOperationLog;
 import com.seed.mybatis.entity.StuPassport;
 import com.seed.mybatis.mapper.db1.StuOperationLogMapper;

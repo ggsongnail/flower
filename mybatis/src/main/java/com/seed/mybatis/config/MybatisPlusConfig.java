@@ -1,4 +1,4 @@
-package com.seed.mybatis;
+package com.seed.mybatis.config;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

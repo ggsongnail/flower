@@ -1,4 +1,4 @@
-package com.seed.mybatis;
+package com.seed.mybatis.config;
 
 import com.atomikos.jdbc.AtomikosDataSourceBean;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;

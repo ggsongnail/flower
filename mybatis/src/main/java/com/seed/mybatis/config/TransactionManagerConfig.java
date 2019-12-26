@@ -1,4 +1,4 @@
-package com.seed.mybatis;
+package com.seed.mybatis.config;
 
 import com.atomikos.icatch.jta.UserTransactionImp;
 import com.atomikos.icatch.jta.UserTransactionManager;
