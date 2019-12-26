@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -39,4 +42,9 @@ public class Db2DataSourceJTAConfig {
     public SqlSessionTemplate jtaDb2SqlSessionTemplate(@Qualifier("jtaDb2SessionFactory") SqlSessionFactory sqlSessionFactory) {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
+
+    /*@Bean(name="db2TransactionManager")
+    public DataSourceTransactionManager transactionManager(@Qualifier("jtaDb2DataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }*/
 }

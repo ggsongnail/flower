@@ -2,15 +2,19 @@ package com.seed.mybatis;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @Author LianSong
  * @Date 2019/12/20 10:15
  */
 @Configuration
+@EnableConfigurationProperties
+@EnableTransactionManagement
 @ComponentScan("com.seed.mybatis")
 public class MybatisPlusConfig {
 

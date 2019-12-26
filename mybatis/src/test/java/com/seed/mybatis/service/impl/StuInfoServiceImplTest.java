@@ -13,14 +13,12 @@ import com.seed.mybatis.service.IStuOperationLogService;
 import com.seed.mybatis.service.IStuPassportService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import java.util.Map;
 
 @Slf4j
-@EnableConfigurationProperties
 @SpringBootTest(classes = MybatisPlusConfig.class)
 class StuInfoServiceImplTest {
 
@@ -85,6 +83,6 @@ class StuInfoServiceImplTest {
     //事务处理
     @Test
     public void transactionalTest(){
-        stuOperationLogService.transUpdate("王七芳",1L);
+        stuOperationLogService.transUpdate("王三小",1L);
     }
 }

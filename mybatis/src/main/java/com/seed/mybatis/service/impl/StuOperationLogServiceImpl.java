@@ -33,6 +33,7 @@ public class StuOperationLogServiceImpl extends ServiceImpl<StuOperationLogMappe
 
     @Override
     @Transactional(rollbackFor = Exception.class)
+    //@Transactional(transactionManager = "transactionManager", rollbackFor = Exception.class)
     public void transUpdate(String name, long uid) {
 
         StuPassport stuPassport = stuPassportService.getById(1L);
@@ -42,8 +43,11 @@ public class StuOperationLogServiceImpl extends ServiceImpl<StuOperationLogMappe
                 .eq(StuOperationLog::getUid, 1L));
         stuOperationLogs.forEach(v -> v.setUserName(name));
         saveOrUpdateBatch(stuOperationLogs, 100);
+
         StuInfo stuInfo = stuInfoService.getById(1200303224419049474L);
         stuInfo.setName(name);
         stuInfoService.saveOrUpdate(stuInfo);
+
+        int i = 1/0;
     }
 }
