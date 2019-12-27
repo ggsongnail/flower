@@ -83,6 +83,7 @@ class StuInfoServiceImplTest {
     //事务处理
     @Test
     public void transactionalTest(){
+
         stuOperationLogService.transUpdate("王三小",1L);
     }
 }
